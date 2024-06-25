@@ -15,7 +15,7 @@ public class PlayerHitController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isPlayerInvincible)
+        if (!isPlayerInvincible && !animator.GetBool("dead") && !animator.GetBool("revive"))
         {
             if (collision.CompareTag("Enemy") || collision.CompareTag("Enemy Bullet"))
             {

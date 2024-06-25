@@ -46,4 +46,13 @@ public class PlayerAnimsController : MonoBehaviour
         animator.SetTrigger(curState.ToString());
     }
 
+    public void SetAnimToIdle()
+    {
+        foreach (AnimationState state in System.Enum.GetValues(typeof(AnimationState)))
+        {
+            animator.ResetTrigger(state.ToString());
+        }
+
+        animator.SetTrigger("doneRevive");
+    }
 }
