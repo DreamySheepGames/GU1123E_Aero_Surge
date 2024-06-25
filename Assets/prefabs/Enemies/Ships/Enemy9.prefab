@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2238541474550363052
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8628654521761928608, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928608, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928608, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928608, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928608, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928608, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928608, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928608, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928608, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928608, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928608, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928622, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_Name
+      value: Enemy9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628654521761928622, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8628654521761928612, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+    - {fileID: 8628654521761928613, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+--- !u!1 &7543465666292852226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8628654521761928622, guid: a7754986201cb7a4ca8b5136c27a23dd, type: 3}
+  m_PrefabInstance: {fileID: 2238541474550363052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5767340071258385729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543465666292852226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62270ec1873191447b0d291cb2bb45a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  isMoveDown: 1
+  health: 1
+--- !u!114 &6782457331387257006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543465666292852226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206fbadf7420a8a44bbc01d4de323760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletAmount: 20
+  angleFormation: 15
+  fireRate: 0.05
+  burstTime: 1
+  shootAfterSecond: 2
+  bulletPool: {fileID: 7545300305118624674, guid: f74ba3f0c066f9941b17a34d251819b4, type: 3}
