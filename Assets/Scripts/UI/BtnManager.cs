@@ -21,6 +21,21 @@ public class BtnManager : MonoBehaviour
 
     public void ReloadLevel()
     {
+        // reset
+        string levelName = SceneManager.GetActiveScene().name;
+        switch (levelName)
+        {
+            case "Level1":
+                Lv1ScoreManager.scoreCount = 0;
+                break;
+
+            case "Level2":
+                Lv2ScoreManager.scoreCount = 0;
+                break;
+        }
+        
+
+        // reload scene
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
