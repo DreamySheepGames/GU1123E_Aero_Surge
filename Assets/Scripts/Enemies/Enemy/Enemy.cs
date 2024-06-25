@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected bool isMoveDown = false;
     [SerializeField] protected float health = 9f;
     protected Animator animator;                                // explode animation when health reaches 0
+    protected int enemyKillToAddLives = 5;
 
     public float Health
     {
@@ -61,19 +62,28 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Scoring()
+    protected void Scoring()
     {
         string levelName = SceneManager.GetActiveScene().name;
 
         switch (levelName)
         {
+            // update both score count and the amount of lives
             case "Level1": 
-                Lv1ScoreManager.scoreCount++;
+                UpdatePlayerLives(++Lv1ScoreManager.scoreCount);
                 break;
 
             case "Level2": 
-                Lv2ScoreManager.scoreCount++;
+                UpdatePlayerLives(++Lv2ScoreManager.scoreCount);
                 break;
+        }
+    }
+
+    protected void UpdatePlayerLives(int score)
+    {
+        if (score % enemyKillToAddLives == 0)
+        {
+            GameManager.livesCounter++;
         }
     }
 }

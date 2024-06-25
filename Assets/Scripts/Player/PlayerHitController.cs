@@ -19,7 +19,7 @@ public class PlayerHitController : MonoBehaviour
         {
             if (collision.CompareTag("Enemy") || collision.CompareTag("Enemy Bullet"))
             {
-                animator.SetBool("Dead", true);
+                animator.SetTrigger("dead");
                 //Destroy(gameObject);
             }
         }
@@ -28,7 +28,18 @@ public class PlayerHitController : MonoBehaviour
 
     public void PlayerSelfDestroy()
     {
-        reloadBtn.SetActive(true);
-        gameObject.SetActive(false);
+        // take 1 lives counter
+        GameManager.livesCounter--;
+
+        if (GameManager.livesCounter <= 0)
+        {
+            reloadBtn.SetActive(true);
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            // revive animation
+            animator.SetTrigger("revive");
+        }
     }
 }
