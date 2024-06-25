@@ -164,35 +164,23 @@ public class Lv2EnemiesSpawner : MonoBehaviour
             switch (spawnStep)
             {
                 case 1:
-                    for (int i = 0; i < amountToSpawn; i++)
-                    {
-                        Vector2 spawnPoint = new Vector2(spawnPointLeft.x, transform.position.y);
-                        Instantiate(EnemyPrefabs[2], spawnPoint, Quaternion.identity);
-                    }
+                    Vector2 spawnPoint = new Vector2(spawnPointLeft.x, transform.position.y);
+                    Instantiate(EnemyPrefabs[2], spawnPoint, Quaternion.identity);
                     break;
 
                 case 2:
-                    for (int i = 0; i < amountToSpawn; i++)
-                    {
-                        Vector2 spawnPoint = new Vector2(spawnPointRight.x, transform.position.y);
-                        Instantiate(EnemyPrefabs[2], spawnPoint, Quaternion.identity);
-                    }
+                    spawnPoint = new Vector2(spawnPointRight.x, transform.position.y);
+                    Instantiate(EnemyPrefabs[2], spawnPoint, Quaternion.identity);
                     break;
 
                 case 3:
-                    for (int i = 0; i < amountToSpawn; i++)
-                    {
-                        Vector2 spawnPoint = new Vector2(spawnPointLeft.x / 2, transform.position.y);
-                        Instantiate(EnemyPrefabs[2], spawnPoint, Quaternion.identity);
-                    }
+                    spawnPoint = new Vector2(spawnPointLeft.x / 2, transform.position.y);
+                    Instantiate(EnemyPrefabs[2], spawnPoint, Quaternion.identity);
                     break;
 
                 case 4:
-                    for (int i = 0; i < amountToSpawn; i++)
-                    {
-                        Vector2 spawnPoint = new Vector2(spawnPointRight.x / 2, transform.position.y);
-                        Instantiate(EnemyPrefabs[2], spawnPoint, Quaternion.identity);
-                    }
+                    spawnPoint = new Vector2(spawnPointRight.x / 2, transform.position.y);
+                    Instantiate(EnemyPrefabs[2], spawnPoint, Quaternion.identity);
                     break;
             }
 
