@@ -8,7 +8,7 @@ public class SpeedChangeBullet : MonoBehaviour
     public float speedRate = 1f;                // original speed * speed rate
     public float timeUntilChange = 1f;          // bullet speed will change after second
 
-    void Start()
+    void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
         Invoke("ChangeSpeed", timeUntilChange);

@@ -25,12 +25,12 @@ public class RadialSmallBullet : MonoBehaviour
 
     private void Start()
     {
+        bullets = Instantiate(bulletPool, transform);
         StartCoroutine(ShootBullets(numberOfProjectiles));
     }
 
     private void Update()
     {
-        bullets = Instantiate(bulletPool, transform);
         startPoint = transform.position;
     }
 

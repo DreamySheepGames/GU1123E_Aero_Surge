@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHitController : MonoBehaviour
 {
     public bool isPlayerInvincible = false;
+    public GameObject loseTxt;
     public GameObject reloadBtn;
     Animator animator;
 
@@ -34,6 +35,7 @@ public class PlayerHitController : MonoBehaviour
 
         if (GameManager.livesCounter <= 0)
         {
+            loseTxt.SetActive(true);
             reloadBtn.SetActive(true);
             gameObject.SetActive(false);
         }

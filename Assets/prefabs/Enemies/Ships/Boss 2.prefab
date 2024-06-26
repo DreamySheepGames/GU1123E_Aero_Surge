@@ -123,6 +123,8 @@ MonoBehaviour:
   health: 200
   timeBeforeStayStill: 1.2
   bossHealthBar: {fileID: 0}
+  mainMenuBtn: {fileID: 0}
+  player: {fileID: 0}
 --- !u!50 &1127409620367710148
 Rigidbody2D:
   serializedVersion: 4
@@ -269,11 +271,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfProjectiles: 8
   projectileSpeed: 20
-  projectilePrefab: {fileID: 7496171787357605995, guid: b5ee3ff3592ba0a4ba6ee372d480e200, type: 3}
   timeToFire: 1.2
   fireRate: 0.25
   clockWise: 1
   angleTilt: 5
+  bulletPool: {fileID: 320794130241947740, guid: 30977b52ed2441742aa024fba394485d, type: 3}
 --- !u!114 &1127409621654776117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,11 +290,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfProjectiles: 8
   projectileSpeed: 20
-  projectilePrefab: {fileID: 7496171787357605995, guid: b5ee3ff3592ba0a4ba6ee372d480e200, type: 3}
   timeToFire: 1.2
   fireRate: 0.25
   clockWise: 0
   angleTilt: 5
+  bulletPool: {fileID: 320794130241947740, guid: 30977b52ed2441742aa024fba394485d, type: 3}
 --- !u!114 &1956682386
 MonoBehaviour:
   m_ObjectHideFlags: 0

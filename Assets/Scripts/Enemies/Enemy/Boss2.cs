@@ -11,7 +11,8 @@ public class Boss2 : Enemy
     [Header("UI")]
     public BossHealthBar bossHealthBar;
     public GameObject mainMenuBtn;
-    
+    public GameObject winTxt;
+
     [Header("Player")]                                      // turn player invincible on when boss is defeated
     public GameObject player;
 
@@ -49,5 +50,10 @@ public class Boss2 : Enemy
     void UpdateHealthBar()
     {
         bossHealthBar.SetHealth(Health);
+    }
+
+    public void EnableWinText()
+    {
+        winTxt.SetActive(true);
     }
 }

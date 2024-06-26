@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("PLAYER UI")]
     public Text livesTxt;
     public static int livesCounter = 1;
+
 
     private void Start()
     {

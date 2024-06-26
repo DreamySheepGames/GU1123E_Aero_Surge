@@ -7,7 +7,7 @@ public class SpinRadialBulletSpawner : MonoBehaviour
     [Header("Projectile Settings")]
     public int numberOfProjectiles;
     public float projectileSpeed;
-    public GameObject projectilePrefab;
+    //public GameObject projectilePrefab;
     public float timeToFire = 1.2f;         // the time enemy start to fire after spawn
     bool hasFired = false;
     public float fireRate = 0.2f;
@@ -17,9 +17,14 @@ public class SpinRadialBulletSpawner : MonoBehaviour
     const float radius = 1f;                // help us find move direction
     public float angleTilt = 10f;           // spin the spawn point
 
+    // bullet pool
+    [SerializeField] GameObject bulletPool;         // bullet pool prefab
+    GameObject bullets;                             // spawn the prefab above, we will interact with it
+
     // Start is called before the first frame update
     void Start()
     {
+        bullets = Instantiate(bulletPool, transform);
         StartCoroutine(ShootBullets(numberOfProjectiles));
     }
 
@@ -51,7 +56,9 @@ public class SpinRadialBulletSpawner : MonoBehaviour
                 Vector2 projectileVector = new Vector2(projectileDirXPosition, projectileDirYPosition);
                 Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * projectileSpeed;
 
-                GameObject bullet = Instantiate(projectilePrefab, startPoint, Quaternion.identity);
+                //GameObject bullet = Instantiate(projectilePrefab, startPoint, Quaternion.identity);
+                GameObject bullet = bullets.GetComponent<BulletPooling>().GetBullet();
+                bullet.SetActive(true);
                 bullet.transform.rotation = Quaternion.Euler(0, 0, 360 - angle);
                 bullet.GetComponent<Rigidbody2D>().velocity = projectileMoveDirection;
 
