@@ -7,7 +7,7 @@ public class RadialSmallBullet : MonoBehaviour
     [Header("Projectile Settings")]
     public int numberOfProjectiles;
     public float projectileSpeed;
-    public GameObject projectilePrefab;
+    //public GameObject projectilePrefab;
     public float timeToFire = 0.5f;         // the time enemy start to fire after spawn
     bool hasFired = false;
     public float fireRate = 0.2f;
@@ -18,6 +18,10 @@ public class RadialSmallBullet : MonoBehaviour
     int bulletsPerBurst = 30;               // Number of bullets per burst
     float burstPauseDuration = 0.5f;          // Pause for 1 second before continue to burst
 
+    // bullet pool
+    [SerializeField] GameObject bulletPool;         // bullet pool prefab
+    GameObject bullets;                             // spawn the prefab above, we will interact with it
+
 
     private void Start()
     {
@@ -26,6 +30,7 @@ public class RadialSmallBullet : MonoBehaviour
 
     private void Update()
     {
+        bullets = Instantiate(bulletPool, transform);
         startPoint = transform.position;
     }
 
@@ -52,7 +57,10 @@ public class RadialSmallBullet : MonoBehaviour
                     Vector2 projectileVector = new Vector2(projectileDirXPosition, projectileDirYPosition);
                     Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * projectileSpeed;
 
-                    GameObject bullet = Instantiate(projectilePrefab, startPoint, Quaternion.identity);
+                    //GameObject bullet = Instantiate(projectilePrefab, startPoint, Quaternion.identity);
+                    GameObject bullet = bullets.GetComponent<BulletPooling>().GetBullet();
+                    bullet.SetActive(true);
+
                     bullet.transform.rotation = Quaternion.Euler(0, 0, 360 - angle + 90);
                     bullet.GetComponent<Rigidbody2D>().velocity = projectileMoveDirection;
 

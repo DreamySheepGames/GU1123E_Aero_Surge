@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfProjectiles: 8
   projectileSpeed: 7
-  projectilePrefab: {fileID: 2767615691856910101, guid: 808a7d314f93d1c49b9c60bcf696df2f, type: 3}
   timeToFire: 1
+  bulletPool: {fileID: 4395604928381890792, guid: 7db35eacaa5ead84a8d030d620ace090, type: 3}
 --- !u!212 &3784645629931456491
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -289,3 +289,5 @@ MonoBehaviour:
   health: 100
   timeBeforeStayStill: 1.2
   bossHealthBar: {fileID: 0}
+  nextLvBtn: {fileID: 0}
+  player: {fileID: 0}

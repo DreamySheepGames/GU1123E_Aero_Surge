@@ -12,7 +12,6 @@ public class GravityBulletCotnroller : MonoBehaviour
     float fireRate = 0.1f;
     int bulletsPerBurst = 15;        // Number of bullets per burst
     float burstPauseDuration = 1f;   // Pause for 1 second before continue to burst
-    float timeBeforeShoot = 0.02f;
 
     bool isFire = true;
 
@@ -25,8 +24,6 @@ public class GravityBulletCotnroller : MonoBehaviour
 
     private IEnumerator ShootBullets()
     {
-        //yield return new WaitForSeconds(timeBeforeShoot);
-
         while (isFire && bullets != null)
         {
             for (int i = 0; i < bulletsPerBurst; i++)

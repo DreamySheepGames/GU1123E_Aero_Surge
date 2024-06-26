@@ -182,5 +182,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfProjectiles: 5
   projectileSpeed: 5
-  projectilePrefab: {fileID: 5349213722795905032, guid: 1b5bf5d42a2150c4597576fc5757483e, type: 3}
   timeToFire: 0.5
+  bulletPool: {fileID: 6894669663971044916, guid: 4b8a307a184c56a43a62ec181f513537, type: 3}
