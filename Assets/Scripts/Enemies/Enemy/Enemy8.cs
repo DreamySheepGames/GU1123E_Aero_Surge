@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy8 : Enemy
 {
     float timeBeforeStayStill = 2f;       // Enemy will move down for 0.5s
-    private void Start()
+    protected override void Start()
     {
         base.Start();
         isMoveDown = true;

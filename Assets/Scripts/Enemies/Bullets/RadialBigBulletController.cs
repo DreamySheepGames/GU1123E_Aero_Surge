@@ -9,7 +9,7 @@ public class RadialBigBulletController : MonoBehaviour
     public float projectileSpeed;
     public GameObject projectilePrefab;
     public float timeToFire = 0.5f;         // the time enemy start to fire after spawn
-    bool canFire = false;
+    //bool canFire = false;
 
     Vector2 startPoint;                     // starting position of the bullet
     const float radius = 1f;                // help us find move direction
@@ -27,30 +27,30 @@ public class RadialBigBulletController : MonoBehaviour
     private IEnumerator ShootBullets(int numberOfProjectiles_)
     {
         yield return new WaitForSeconds(timeToFire);
-        canFire = true;
-        if (canFire)
+        //canFire = true;
+        //if (canFire)
+        //{
+        float angleStep = 360 / numberOfProjectiles_;
+        float angle = 0;
+
+
+        // number of directions
+        for (int i = 0; i < numberOfProjectiles_; i++)
         {
-            float angleStep = 360 / numberOfProjectiles_;
-            float angle = 0;
+            // direction vector calculations
+            float projectileDirXPosition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
+            float projectileDirYPosition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
 
+            Vector2 projectileVector = new Vector2(projectileDirXPosition, projectileDirYPosition);
+            Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * projectileSpeed;
 
-            // number of directions
-            for (int i = 0; i < numberOfProjectiles_; i++)
-            {
-                // direction vector calculations
-                float projectileDirXPosition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
-                float projectileDirYPosition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+            GameObject bullet = Instantiate(projectilePrefab, startPoint, Quaternion.identity);
+            bullet.GetComponent<Rigidbody2D>().velocity = projectileMoveDirection;
 
-                Vector2 projectileVector = new Vector2(projectileDirXPosition, projectileDirYPosition);
-                Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * projectileSpeed;
-
-                GameObject bullet = Instantiate(projectilePrefab, startPoint, Quaternion.identity);
-                bullet.GetComponent<Rigidbody2D>().velocity = projectileMoveDirection;
-
-                angle += angleStep;
-            }
-
-            canFire = false;
+            angle += angleStep;
         }
+
+        //    canFire = false;
+        //}
     }
 }

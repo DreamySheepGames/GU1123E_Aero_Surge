@@ -7,13 +7,21 @@ public class RadialBulletController : MonoBehaviour
     [Header("Projectile Settings")]
     public int numberOfProjectiles;
     public float projectileSpeed;
-    public GameObject projectilePrefab;
-    public float timeToFire = 1f;         // the time enemy start to fire after spawn
+    //public GameObject projectilePrefab;
+    public float timeToFire = 1f;                   // the time enemy start to fire after spawn
 
-    Vector2 startPoint;                     // starting position of the bullet
-    const float radius = 1f;                // help us find move direction
+    Vector2 startPoint;                             // starting position of the bullet
+    const float radius = 1f;                        // the radius of the circle, or the length of vector, can affect bullet speed
     bool hasFired = false;
 
+    // bullet pool
+    [SerializeField] GameObject bulletPool;         // bullet pool prefab
+    GameObject bullets;                             // spawn the prefab above, we will interact with it
+
+    private void Start()
+    {
+        bullets = Instantiate(bulletPool, transform);
+    }
 
     private void Update()
     {
@@ -41,7 +49,10 @@ public class RadialBulletController : MonoBehaviour
             Vector2 projectileVector = new Vector2(projectileDirXPosition, projectileDirYPosition);
             Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * projectileSpeed;
 
-            GameObject bullet = Instantiate(projectilePrefab, startPoint, Quaternion.identity);
+            //GameObject bullet = Instantiate(projectilePrefab, startPoint, Quaternion.identity);
+            GameObject bullet = bullets.GetComponent<BulletPooling>().GetBullet();
+            bullet.SetActive(true);
+
             bullet.transform.rotation = Quaternion.Euler(0, 0, 360 - angle + 90);
             bullet.GetComponent<Rigidbody2D>().velocity = projectileMoveDirection;
 

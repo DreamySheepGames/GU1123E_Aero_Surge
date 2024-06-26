@@ -201,7 +201,7 @@ public class Lv2EnemiesSpawner : MonoBehaviour
         while (canSpawnMeteor)
         {
             yield return new WaitForSeconds(spawnRateMeteor);
-            Vector2 spawnPoint = new Vector2(Random.RandomRange(transform.position.x - randDistance, transform.position.x + randDistance), transform.position.y);
+            Vector2 spawnPoint = new Vector2(Random.Range(transform.position.x - randDistance, transform.position.x + randDistance), transform.position.y);
             GameObject meteor = Instantiate(EnemyPrefabs_[3], spawnPoint, Quaternion.identity);
         }
     }

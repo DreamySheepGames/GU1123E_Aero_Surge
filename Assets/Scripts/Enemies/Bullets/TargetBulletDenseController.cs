@@ -60,22 +60,20 @@ public class TargetBulletDenseController : MonoBehaviour
 
                 // vector that targets player
                 Vector2 bulDir = (playerPos - transform.position).normalized;
-                //Vector2 bulDir = (player.transform.position - transform.position).normalized;
-                //GameObject bul = TargetBulletPooling.instance.GetBullet();
-                GameObject bul = bullets.GetComponent<TargetBulletPooling>().GetBullet();
+                GameObject bul = bullets.GetComponent<BulletPooling>().GetBullet();
                 bul.transform.position = transform.position;
                 bul.GetComponent<TargetBullet>().SetMoveDir(bulDir);
                 bul.SetActive(true);
 
                 // extra vectors
                 Vector2 bulDirLeft = UtilVector.RotateVector2(bulDir, -angleFormation);
-                GameObject bulLeft = bullets.GetComponent<TargetBulletPooling>().GetBullet();
+                GameObject bulLeft = bullets.GetComponent<BulletPooling>().GetBullet();
                 bulLeft.transform.position = transform.position;
                 bulLeft.GetComponent<TargetBullet>().SetMoveDir(bulDirLeft);
                 bulLeft.SetActive(true);
 
                 Vector2 bulDirRight = UtilVector.RotateVector2(bulDir, angleFormation);
-                GameObject bulRight = bullets.GetComponent<TargetBulletPooling>().GetBullet();
+                GameObject bulRight = bullets.GetComponent<BulletPooling>().GetBullet();
                 bulRight.transform.position = transform.position;
                 bulRight.GetComponent<TargetBullet>().SetMoveDir(bulDirRight);
                 bulRight.SetActive(true);

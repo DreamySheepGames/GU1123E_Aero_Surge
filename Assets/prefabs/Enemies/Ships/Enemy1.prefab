@@ -149,7 +149,6 @@ MonoBehaviour:
   moveSpeed: 2
   isMoveDown: 1
   health: 9
-  bulletPrefab: {fileID: 0}
 --- !u!114 &583770163369365481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,8 +163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfProjectiles: 40
   projectileSpeed: 5
-  projectilePrefab: {fileID: 7391406545907786337, guid: d1c5ce5a62fbc724d953acf62b303f8c, type: 3}
   timeToFire: 1
+  bulletPool: {fileID: 7219132944340056883, guid: 77b4df68f4eddf84d8bb1e299f301c82, type: 3}
 --- !u!95 &1410668740
 Animator:
   serializedVersion: 3

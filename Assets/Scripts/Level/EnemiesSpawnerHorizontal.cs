@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemiesSpawnerHorizontal : MonoBehaviour
 {
-    [SerializeField] bool canSpawn = true;
     [SerializeField] float spawnRate = 2f;
     [SerializeField] GameObject[] EnemyPrefabs;
     [SerializeField] int numberToSpawn = 10;

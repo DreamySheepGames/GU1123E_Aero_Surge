@@ -7,7 +7,7 @@ public class BossMini : Enemy
     [SerializeField] float timeBeforeStayStill = 1f;        // Enemy will move down for 0.5s
     public BossHealthBar bossHealthBar;
 
-    private void Start()
+    protected override void Start()
     {
         base.Start();
         isMoveDown = true;

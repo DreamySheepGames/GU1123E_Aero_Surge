@@ -24,7 +24,7 @@ public class Lv2SpawnLeftCorner : MonoBehaviour
         while(canSpawn)
         {
             yield return new WaitForSeconds(spawnRate);
-            Vector2 spawnPoint = new Vector2(Random.RandomRange(transform.position.x - randDistance, transform.position.x + randDistance), transform.position.y);
+            Vector2 spawnPoint = new Vector2(Random.Range(transform.position.x - randDistance, transform.position.x + randDistance), transform.position.y);
             GameObject meteor = Instantiate(EnemyPrefabs_[0], spawnPoint, Quaternion.identity);
             meteor.transform.rotation = Quaternion.Euler(0, 0, 45);
         }

@@ -54,7 +54,7 @@ public class TargetBulleController : MonoBehaviour
             {
                 // vector that targets player
                 Vector2 bulDir = (playerPos - transform.position).normalized;
-                GameObject bul = bullets.GetComponent<TargetBulletPooling>().GetBullet();
+                GameObject bul = bullets.GetComponent<BulletPooling>().GetBullet();
                 bul.transform.position = transform.position;
                 bul.GetComponent<TargetBullet>().SetMoveDir(bulDir);
                 bul.SetActive(true);

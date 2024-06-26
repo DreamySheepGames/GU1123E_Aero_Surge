@@ -2,28 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetBulletPooling : MonoBehaviour
+public class BulletPooling : MonoBehaviour
 {
-    //public static TargetBulletPooling instance;
     [SerializeField] GameObject pooledBullet;
     List<GameObject> bullets;
     bool notEnoughBulletsInPool = true;
-    int amountToPool = 10;
+    //int amountToPool = 10;
 
     private void Start()
     {
-        //if (instance != null && instance != this)
-        //    Destroy(this.gameObject);
-        //else
-        //    instance = this;
-
         bullets = new List<GameObject>();
-        for (int i = 0; i < amountToPool; i++)
-        {
-            GameObject bullet = Instantiate(pooledBullet);
-            bullet.SetActive(false);
-            bullets.Add(bullet);
-        }
+
+        // we don't spawn the bullets in start in case the enemy spawn the pool when it is not
+        // in the wanted postition. (Enemy at point A but bullets are spawn at point B)
+
+        //for (int i = 0; i < amountToPool; i++)
+        //{
+        //    GameObject bullet = Instantiate(pooledBullet);
+        //    bullet.SetActive(false);
+        //    bullets.Add(bullet);
+        //}
     }
 
     public GameObject GetBullet()
@@ -41,10 +39,11 @@ public class TargetBulletPooling : MonoBehaviour
             }
         }
 
-        // if we don't have any then spawn, add in pool, then return the bullet that just spawned;
+        // if we don't have any then spawn, add in pool, then return the bullet that just spawned
+        // we don't actually need the notEnoughBulletsInPool condition
         if (notEnoughBulletsInPool)
         {
-            GameObject bul = Instantiate(pooledBullet);
+            GameObject bul = Instantiate(pooledBullet, transform.position, Quaternion.identity);
             pooledBullet.SetActive(false);
             bullets.Add(bul);
             return bul;

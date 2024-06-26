@@ -9,7 +9,7 @@ public class Enemy5 : Enemy
 
     bool inPostition = false;
 
-    private void Start()
+    protected override void Start()
     {
         base.Start();
         moveSpeed = 0.2f;

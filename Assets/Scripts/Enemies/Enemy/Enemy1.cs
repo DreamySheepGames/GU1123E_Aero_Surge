@@ -6,7 +6,8 @@ public class Enemy1 : Enemy
 {
     float timeBeforeStayStill = 0.5f;       // Enemy will move down for 0.5s
     float timeBeforeContinueMoving = 1f;    // Enemy stays still for 0.5s then continue to move down
-    private void Start()
+
+    protected override void Start()
     {
         base.Start();
         isMoveDown = true;

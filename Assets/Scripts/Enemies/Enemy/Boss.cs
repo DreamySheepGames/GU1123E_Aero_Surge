@@ -15,7 +15,7 @@ public class Boss : Enemy
     [Header("Player")]                                      // turn player invincible on when boss is defeated
     public GameObject player;
 
-    private void Start()
+    protected override void Start()
     {
         base.Start();
         Health = 100f;

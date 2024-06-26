@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy2 : Enemy
 {
-    private void Start()
+    protected override void Start()
     {
         base.Start();
         moveSpeed = 2f;

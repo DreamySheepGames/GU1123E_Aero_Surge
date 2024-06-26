@@ -7,11 +7,6 @@ public class TargetBullet : MonoBehaviour
     Vector2 moveDir;
     public float moveSpeed = 10f;
 
-    private void OnEnable()
-    {
-        Invoke("DisableBullet", 3f);      // set active to fasle after 3s
-    }
-
     private void Update()
     {
         transform.Translate(moveDir * moveSpeed * Time.deltaTime);
@@ -21,16 +16,5 @@ public class TargetBullet : MonoBehaviour
     public void SetMoveDir(Vector2 moveDir_)
     {
         moveDir = moveDir_;
-    }
-    
-    private void DisableBullet()
-    {
-        gameObject.SetActive(false);
-    }
-
-    // avoid possible issues with ivocation method when object isn't active
-    private void OnDisable()
-    {
-        CancelInvoke();
     }
 }

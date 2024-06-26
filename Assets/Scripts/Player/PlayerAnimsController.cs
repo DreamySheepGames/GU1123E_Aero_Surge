@@ -7,10 +7,12 @@ public class PlayerAnimsController : MonoBehaviour
     enum AnimationState {idle, tiltLeft, tiltRight}
     AnimationState curState;
     Animator animator;
+    CircleCollider2D collider;                          // turn on the collider after done reiving because it's turned of when the player is dead
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        collider = GetComponent<CircleCollider2D>();
         curState = AnimationState.idle;
         UpdateAnimation();   
     }
@@ -48,6 +50,8 @@ public class PlayerAnimsController : MonoBehaviour
 
     public void SetAnimToIdle()
     {
+        collider.enabled = true;
+
         foreach (AnimationState state in System.Enum.GetValues(typeof(AnimationState)))
         {
             animator.ResetTrigger(state.ToString());
