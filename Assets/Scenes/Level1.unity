@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af3ce4ac61a5da4fb910e59f406f5cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeStartSpawning: 1
+  timeStartSpawning: 125
   boss: {fileID: 329960554}
   bossHealthBar: {fileID: 1316916069}
 --- !u!4 &250627418 stripped
@@ -1287,7 +1287,8 @@ MonoBehaviour:
   musicSource: {fileID: 1714304282}
   sfxSource: {fileID: 1362531576}
   background: {fileID: 8300000, guid: 0de84eccfa00e974799d150b95a68856, type: 3}
-  playerShooting: {fileID: 0}
+  playerExplode: {fileID: 8300000, guid: 7cf105ae51915af40a52043cc42dac1b, type: 3}
+  playerRevive: {fileID: 8300000, guid: 7c3183f30d4f55d4f9b864f2e9e5290c, type: 3}
 --- !u!1 &783650504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3627,8 +3628,12 @@ PrefabInstance:
       objectReference: {fileID: 1070061226}
     - target: {fileID: 8135269105482484943, guid: 0615084f0737ce04eb842080b97fc774, type: 3}
       propertyPath: isPlayerInvincible
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8535481068695402791, guid: 0615084f0737ce04eb842080b97fc774, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 757279200}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0615084f0737ce04eb842080b97fc774, type: 3}
 --- !u!1 &8135269106098962291 stripped

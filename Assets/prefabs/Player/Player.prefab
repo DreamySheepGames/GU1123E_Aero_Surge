@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8135269105482484937}
   - component: {fileID: 8135269105482484942}
   - component: {fileID: 8135269105482484943}
+  - component: {fileID: 8535481068695402791}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -194,6 +195,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerInvincible: 1
+  loseTxt: {fileID: 0}
+  reloadBtn: {fileID: 0}
+--- !u!114 &8535481068695402791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8135269105482484935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4f161bfbc01b0458be2737575a3a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8135269106505120647
 GameObject:
   m_ObjectHideFlags: 0
