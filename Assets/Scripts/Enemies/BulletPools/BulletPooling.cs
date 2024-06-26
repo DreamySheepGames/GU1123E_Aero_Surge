@@ -9,7 +9,7 @@ public class BulletPooling : MonoBehaviour
     bool notEnoughBulletsInPool = true;
     //int amountToPool = 10;
 
-    private void Start()
+    private void Awake()        // null referece if this is start because the enemy will call GetBullet() before this is created
     {
         bullets = new List<GameObject>();
 

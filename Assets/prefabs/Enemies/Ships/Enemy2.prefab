@@ -91,4 +91,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b608857ce97944f94f0f58c5cd7f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4633910598758608308, guid: c4dbc5c93225a7a47831ce2046089ce9, type: 3}
+  bulletPool: {fileID: 8788012680203133192, guid: 3d0390031420a334a8aea274648b4364, type: 3}
