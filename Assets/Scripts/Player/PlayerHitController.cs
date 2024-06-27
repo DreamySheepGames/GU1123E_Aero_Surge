@@ -28,7 +28,7 @@ public class PlayerHitController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") || collision.CompareTag("Enemy Bullet"))
         {
-            if (!isPlayerInvincible && !animator.GetBool("dead") && !animator.GetBool("revive"))
+            if (!isPlayerInvincible)
             {
                 GetComponent<CircleCollider2D>().enabled = false;   // turn of the collider, if not then the explode anim will reapeat it will when there are multiple bullets
                                                                     // we will turn on the collider in PlayerAnimsController at the end of reviving animation
