@@ -11,6 +11,8 @@ public class BtnManager : MonoBehaviour
 
     public void PlayBtn()
     {
+        Time.timeScale = 1f;
+        PauseMenu.isPause = false;
         GameManager.isAdventureMode = false;
         SceneManager.LoadScene(lv1);
     }
@@ -29,6 +31,9 @@ public class BtnManager : MonoBehaviour
     public void ReloadLevel()
     {
         // reset
+        Time.timeScale = 1f;
+        PauseMenu.isPause = false;
+
         string levelName = SceneManager.GetActiveScene().name;
         switch (levelName)
         {
@@ -40,7 +45,7 @@ public class BtnManager : MonoBehaviour
                 Lv2ScoreManager.scoreCount = 0;
                 break;
         }
-        
+
 
         // reload scene
         string currentSceneName = SceneManager.GetActiveScene().name;
@@ -49,6 +54,8 @@ public class BtnManager : MonoBehaviour
 
     public void Menu()
     {
+        Time.timeScale = 1f;
+        PauseMenu.isPause = false;
         SceneManager.LoadScene(mainMenu);
     }
 }

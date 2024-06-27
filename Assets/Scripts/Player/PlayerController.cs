@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
     void PlayerShooting()
     {
         // player presses Z to fire
-        if (Time.time > nextFire && Input.GetKey(KeyCode.Z))
+        if (Time.time > nextFire && Input.GetKey(KeyCode.Z) && !PauseMenu.isPause)
         {
             nextFire = Time.time + fireRate;
 
