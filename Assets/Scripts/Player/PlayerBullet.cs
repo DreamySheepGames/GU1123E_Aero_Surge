@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-    float speed = 15.0f;
+    public static float speed = 15.0f;
 
-    private void FixedUpdate()
-    {
-        GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
-    }
+    //private void FixedUpdate()
+    //{
+    //    GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
+    //}
 
     private void OnTriggerEnter2D(Collider2D other)
     {

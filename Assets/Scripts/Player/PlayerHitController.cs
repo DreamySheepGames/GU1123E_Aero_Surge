@@ -30,6 +30,10 @@ public class PlayerHitController : MonoBehaviour
 
     public void PlayerSelfDestroy()
     {
+        // reset player level
+        GameManager.playerLevel = 1;
+        GameManager.killCount = 0;
+
         // take 1 lives counter
         GameManager.livesCounter--;
 

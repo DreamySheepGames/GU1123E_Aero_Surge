@@ -2256,6 +2256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db09f7f758caa194f91c71435e696434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 757279200}
   livesTxt: {fileID: 284025493}
 --- !u!1 &1894563729
 GameObject:

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBulletPooling : MonoBehaviour
 {
-    public static PlayerBulletPooling instance;
+    public static PlayerBulletPooling instance { get; set; }
 
     List<GameObject> pooledBullet = new List<GameObject>();
     int amountToPool = 2;
@@ -12,10 +12,14 @@ public class PlayerBulletPooling : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null && instance != this)
-            Destroy(this.gameObject);
-        else
+        if (instance == null)
+        {
             instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -31,14 +35,7 @@ public class PlayerBulletPooling : MonoBehaviour
     // get the bullet that is not active in the pool
     public GameObject GetPooledBullet()
     {
-        // check if we are out of bullets
-        if (AreAllBulletActive())
-        {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
-            bullet.SetActive(false);
-            pooledBullet.Add(bullet);
-        }
-
+        // return the bullet that is not active
         for (int i = 0; i < pooledBullet.Count; i++)
         {
             if (!pooledBullet[i].activeInHierarchy)
@@ -46,6 +43,15 @@ public class PlayerBulletPooling : MonoBehaviour
                 pooledBullet[i].transform.position = transform.position;    // return the bullet to the head of the plane
                 return pooledBullet[i];
             }
+        }
+
+        // if we are out of bullets
+        if (AreAllBulletActive())
+        {
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
+            bullet.SetActive(false);
+            pooledBullet.Add(bullet);
+            return bullet;
         }
 
         return null;

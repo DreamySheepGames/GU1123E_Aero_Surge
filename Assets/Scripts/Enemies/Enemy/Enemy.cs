@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
     {
         // score
         Scoring();
+        PlayerLevelUpCheck();
         Destroy(gameObject);
     }
 
@@ -84,6 +85,19 @@ public class Enemy : MonoBehaviour
         if (score % enemyKillToAddLives == 0)
         {
             GameManager.livesCounter++;
+        }
+    }
+
+    public void PlayerLevelUpCheck()
+    {
+        GameManager.killCount++;
+        if (GameManager.killCount % GameManager.killBeforeLevelUp == 0 && GameManager.playerLevel < GameManager.playerLevelCap)
+        {
+            // play level up sound and level up
+            GameManager.playerLevel++;
+
+            // we don't use Audio Manager in this class because we'll have to drag the Audio Manger game object into every single one enemy prefabs
+            GameManager.Instance.PlayPlayerLevelUpAudio();
         }
     }
 }
