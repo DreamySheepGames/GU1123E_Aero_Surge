@@ -11,6 +11,13 @@ public class BtnManager : MonoBehaviour
 
     public void PlayBtn()
     {
+        GameManager.isAdventureMode = false;
+        SceneManager.LoadScene(lv1);
+    }
+
+    public void AdventureBtn()
+    {
+        GameManager.isAdventureMode = true;
         SceneManager.LoadScene(lv1);
     }
 

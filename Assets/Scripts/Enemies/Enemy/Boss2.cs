@@ -42,6 +42,7 @@ public class Boss2 : Enemy
         if (health <= 0)
         {
             player.GetComponent<PlayerHitController>().isPlayerInvincible = true;
+            //PlayerHitController.isPlayerInvincible = true;
             mainMenuBtn.SetActive(true);
             IsAlive = false;
         }
@@ -54,6 +55,8 @@ public class Boss2 : Enemy
 
     public void EnableWinText()
     {
-        winTxt.SetActive(true);
+        // avoid boss and player are dead at the same time
+        if (GameManager.livesCounter > 0)
+            winTxt.SetActive(true);
     }
 }

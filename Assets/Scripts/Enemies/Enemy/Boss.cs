@@ -44,6 +44,7 @@ public class Boss : Enemy
         {
             // turn on player invincible so player won't get hit by space junk
             player.GetComponent<PlayerHitController>().isPlayerInvincible = true;
+            //PlayerHitController.isPlayerInvincible = true;
 
             // next level button
             nextLvBtn.SetActive(true);
@@ -60,6 +61,8 @@ public class Boss : Enemy
 
     public void EnableWinText()
     {
-        winTxt.SetActive(true);
+        // avoid boss and player are dead at the same time
+        if (GameManager.livesCounter > 0)
+            winTxt.SetActive(true);
     }
 }

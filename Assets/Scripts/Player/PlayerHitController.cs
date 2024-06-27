@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class PlayerHitController : MonoBehaviour
 {
+    public static PlayerHitController Instance { get; set; }
     public bool isPlayerInvincible = false;
     public GameObject loseTxt;
     public GameObject reloadBtn;
     Animator animator;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);
+        else
+            Instance = this;
+    }
+
     private void Start()
     {
+        isPlayerInvincible = GameManager.isAdventureMode;
         animator = GetComponent<Animator>();
     }
 
