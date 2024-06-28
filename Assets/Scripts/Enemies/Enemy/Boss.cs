@@ -10,8 +10,7 @@ public class Boss : Enemy
 
     [Header("UI")]
     public BossHealthBar bossHealthBar;
-    public GameObject nextLvBtn;
-    public GameObject winTxt;
+
 
     [Header("Player")]                                      // turn player invincible on when boss is defeated
     public GameObject player;
@@ -44,10 +43,6 @@ public class Boss : Enemy
         {
             // turn on player invincible so player won't get hit by space junk
             player.GetComponent<PlayerHitController>().isPlayerInvincible = true;
-            //PlayerHitController.isPlayerInvincible = true;
-
-            // next level button
-            nextLvBtn.SetActive(true);
 
             // turn of spawn junk space
             IsAlive = false;
@@ -61,8 +56,6 @@ public class Boss : Enemy
 
     public void EnableWinText()
     {
-        // avoid boss and player are dead at the same time
-        if (GameManager.livesCounter > 0)
-            winTxt.SetActive(true);
+        UIManager.Instance.AfterLosing();
     }
 }

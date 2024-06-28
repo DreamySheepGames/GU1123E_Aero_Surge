@@ -123,7 +123,6 @@ MonoBehaviour:
   health: 200
   timeBeforeStayStill: 1.2
   bossHealthBar: {fileID: 0}
-  mainMenuBtn: {fileID: 0}
   player: {fileID: 0}
 --- !u!50 &1127409620367710148
 Rigidbody2D:
@@ -184,7 +183,7 @@ GameObject:
   - component: {fileID: 1127409621654776107}
   - component: {fileID: 1127409621654776116}
   - component: {fileID: 1127409621654776117}
-  - component: {fileID: 1956682386}
+  - component: {fileID: 7349063791171121348}
   m_Layer: 0
   m_Name: Boss2BulletSpawner
   m_TagString: Untagged
@@ -295,7 +294,7 @@ MonoBehaviour:
   clockWise: 0
   angleTilt: 5
   bulletPool: {fileID: 320794130241947740, guid: 30977b52ed2441742aa024fba394485d, type: 3}
---- !u!114 &1956682386
+--- !u!114 &7349063791171121348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,11 +303,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1127409621654776105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bdb221de7875b94082d89ae8b401c00, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b60acbe58fa9384e876e02382d8c866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfProjectiles: 8
+  projectileSpeed: 10
+  timeToFire: 0.5
+  burstTime: 1
   bulletAmount: 30
   fireRate: 0.05
-  burstTime: 1
-  shootAfterSecond: 2
-  bulletPool: {fileID: 7545300305118624674, guid: f74ba3f0c066f9941b17a34d251819b4, type: 3}
+  bulletPool: {fileID: 6894669663971044916, guid: 4b8a307a184c56a43a62ec181f513537, type: 3}

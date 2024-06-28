@@ -1560,6 +1560,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548771a935223674882dc8ae35ef70fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loseTxt: {fileID: 1202088160}
+  reloadBtn: {fileID: 150338933}
+  winTxt: {fileID: 1883969404}
+  nextLvBtn: {fileID: 210237734}
 --- !u!1 &717458794
 GameObject:
   m_ObjectHideFlags: 0
@@ -3866,14 +3870,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8135269106098962291}
     - target: {fileID: 1127409620367710202, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}
-      propertyPath: winTxt
-      value: 
-      objectReference: {fileID: 1883969404}
-    - target: {fileID: 1127409620367710202, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}
-      propertyPath: mainMenuBtn
-      value: 
-      objectReference: {fileID: 210237734}
-    - target: {fileID: 1127409620367710202, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}
       propertyPath: bossHealthBar
       value: 
       objectReference: {fileID: 1282380711}
@@ -3885,14 +3881,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1127409621654776116, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}
-      propertyPath: bulletPool
-      value: 
-      objectReference: {fileID: 320794130241947740, guid: 30977b52ed2441742aa024fba394485d, type: 3}
-    - target: {fileID: 1127409621654776117, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}
-      propertyPath: bulletPool
-      value: 
-      objectReference: {fileID: 320794130241947740, guid: 30977b52ed2441742aa024fba394485d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}
 --- !u!1001 &2459833517855701040

@@ -10,8 +10,6 @@ public class Boss2 : Enemy
 
     [Header("UI")]
     public BossHealthBar bossHealthBar;
-    public GameObject mainMenuBtn;
-    public GameObject winTxt;
 
     [Header("Player")]                                      // turn player invincible on when boss is defeated
     public GameObject player;
@@ -42,8 +40,6 @@ public class Boss2 : Enemy
         if (health <= 0)
         {
             player.GetComponent<PlayerHitController>().isPlayerInvincible = true;
-            //PlayerHitController.isPlayerInvincible = true;
-            mainMenuBtn.SetActive(true);
             IsAlive = false;
         }
     }
@@ -55,8 +51,6 @@ public class Boss2 : Enemy
 
     public void EnableWinText()
     {
-        // avoid boss and player are dead at the same time
-        if (GameManager.livesCounter > 0)
-            winTxt.SetActive(true);
+        UIManager.Instance.AfterWinning();
     }
 }

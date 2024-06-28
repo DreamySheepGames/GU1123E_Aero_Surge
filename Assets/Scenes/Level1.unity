@@ -1384,6 +1384,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548771a935223674882dc8ae35ef70fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loseTxt: {fileID: 1761521695}
+  reloadBtn: {fileID: 1070061226}
+  winTxt: {fileID: 783650504}
+  nextLvBtn: {fileID: 422348076}
 --- !u!1 &679038903
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,6 +29,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        // Only pause if the player is still alive
         if (GameManager.livesCounter > 0)
         {
             pauseMenu.SetActive(true);

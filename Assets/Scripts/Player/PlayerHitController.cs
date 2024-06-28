@@ -6,8 +6,7 @@ public class PlayerHitController : MonoBehaviour
 {
     public static PlayerHitController Instance { get; set; }
     public bool isPlayerInvincible = false;
-    public GameObject loseTxt;
-    public GameObject reloadBtn;
+
     Animator animator;
 
     private void Awake()
@@ -49,8 +48,7 @@ public class PlayerHitController : MonoBehaviour
 
         if (GameManager.livesCounter <= 0)
         {
-            loseTxt.SetActive(true);
-            reloadBtn.SetActive(true);
+            UIManager.Instance.AfterLosing();
             gameObject.SetActive(false);
         }
         else
