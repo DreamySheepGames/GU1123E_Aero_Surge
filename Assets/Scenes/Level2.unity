@@ -1358,8 +1358,8 @@ GameObject:
   m_Component:
   - component: {fileID: 590888934}
   - component: {fileID: 590888933}
-  - component: {fileID: 590888932}
   - component: {fileID: 590888931}
+  - component: {fileID: 590888935}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -1401,20 +1401,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'SCORE: 0'
---- !u!114 &590888932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590888930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b45b6800109ef54197c08eb3378ea8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreTxt: {fileID: 590888931}
-  highScoreTxt: {fileID: 1401581861}
 --- !u!222 &590888933
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1442,6 +1428,20 @@ RectTransform:
   m_AnchoredPosition: {x: -203.72, y: 125.476}
   m_SizeDelta: {x: 407.44, y: 80.416}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &590888935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590888930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47de2de142a68374aaff23b6223a6f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreTxt: {fileID: 590888931}
+  highScoreTxt: {fileID: 1401581861}
 --- !u!1 &677884612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,6 +2439,9 @@ MonoBehaviour:
   background: {fileID: 8300000, guid: 90c2132136403a542bc9057767dd407d, type: 3}
   playerExplode: {fileID: 8300000, guid: 7cf105ae51915af40a52043cc42dac1b, type: 3}
   playerRevive: {fileID: 8300000, guid: 7c3183f30d4f55d4f9b864f2e9e5290c, type: 3}
+  playerLevelUp: {fileID: 8300000, guid: eebe957563ff30c41b922663e48164a0, type: 3}
+  playerShoot: {fileID: 8300000, guid: cdbc304eda981b04abe2505db8590a4b, type: 3}
+  enemyExplode: {fileID: 8300000, guid: 377310867dafd644297eaa91795a5bb3, type: 3}
 --- !u!4 &1348678959
 Transform:
   m_ObjectHideFlags: 0
@@ -2679,8 +2682,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1401581860}
   - component: {fileID: 1401581863}
-  - component: {fileID: 1401581862}
   - component: {fileID: 1401581861}
+  - component: {fileID: 1401581862}
   m_Layer: 5
   m_Name: HighScore
   m_TagString: Untagged
@@ -2750,7 +2753,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1401581859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b45b6800109ef54197c08eb3378ea8e, type: 3}
+  m_Script: {fileID: 11500000, guid: 47de2de142a68374aaff23b6223a6f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTxt: {fileID: 590888931}
@@ -3880,6 +3883,22 @@ PrefabInstance:
     - target: {fileID: 1127409620367710206, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349063791171121348, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}
+      propertyPath: fireRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349063791171121348, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}
+      propertyPath: timeToFire
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349063791171121348, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}
+      propertyPath: bulletAmount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349063791171121348, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}
+      propertyPath: numberOfProjectiles
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cce13639b7cc464383b089a42ab827a, type: 3}

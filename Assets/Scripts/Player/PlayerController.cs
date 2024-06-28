@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
 
     void PlayerLevel1Shooting()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playerShoot);
         GameObject bullet = PlayerBulletPooling.instance.GetPooledBullet();
         bullet.transform.rotation = Quaternion.Euler(0, 0, 90);
         bullet.SetActive(true);
@@ -142,6 +143,8 @@ public class PlayerController : MonoBehaviour
 
     void PlayerLevel2Shooting()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playerShoot);
+
         GameObject bulletLeft = PlayerBulletPooling.instance.GetPooledBullet();
         Vector2 bulletLeftPos = new Vector2(transform.position.x - midBulletDelta, transform.position.y);
         bulletLeft.transform.position = bulletLeftPos;

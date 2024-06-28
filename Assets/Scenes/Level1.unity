@@ -1650,6 +1650,9 @@ MonoBehaviour:
   background: {fileID: 8300000, guid: 0de84eccfa00e974799d150b95a68856, type: 3}
   playerExplode: {fileID: 8300000, guid: 7cf105ae51915af40a52043cc42dac1b, type: 3}
   playerRevive: {fileID: 8300000, guid: 7c3183f30d4f55d4f9b864f2e9e5290c, type: 3}
+  playerLevelUp: {fileID: 8300000, guid: eebe957563ff30c41b922663e48164a0, type: 3}
+  playerShoot: {fileID: 8300000, guid: cdbc304eda981b04abe2505db8590a4b, type: 3}
+  enemyExplode: {fileID: 8300000, guid: 377310867dafd644297eaa91795a5bb3, type: 3}
 --- !u!1 &783650504
 GameObject:
   m_ObjectHideFlags: 0

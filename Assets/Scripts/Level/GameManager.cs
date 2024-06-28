@@ -39,9 +39,4 @@ public class GameManager : MonoBehaviour
     {
         livesTxt.text = livesCounter.ToString();
     }
-
-    public void PlayPlayerLevelUpAudio()
-    {
-        audioManager.PlaySFX(audioManager.playerRevive);
-    }
 }

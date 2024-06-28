@@ -85,6 +85,7 @@ public class Enemy : MonoBehaviour
         if (score % enemyKillToAddLives == 0)
         {
             GameManager.livesCounter++;
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.playerRevive);
         }
     }
 
@@ -95,9 +96,12 @@ public class Enemy : MonoBehaviour
         {
             // play level up sound and level up
             GameManager.playerLevel++;
-
-            // we don't use Audio Manager in this class because we'll have to drag the Audio Manger game object into every single one enemy prefabs
-            GameManager.Instance.PlayPlayerLevelUpAudio();
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.playerLevelUp);
         }
+    }
+
+    public void EnemyDeadSound()
+    {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.enemyExplode);
     }
 }
