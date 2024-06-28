@@ -56,6 +56,6 @@ public class Boss : Enemy
 
     public void EnableWinText()
     {
-        UIManager.Instance.AfterLosing();
+        UIManager.Instance.AfterWinning();
     }
 }
