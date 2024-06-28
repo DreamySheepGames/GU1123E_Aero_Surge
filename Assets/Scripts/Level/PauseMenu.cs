@@ -29,10 +29,13 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        audioSource.GetComponent<AudioManager>().PauseMusic();
-        isPause = true;
+        if (GameManager.livesCounter > 0)
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+            audioSource.GetComponent<AudioManager>().PauseMusic();
+            isPause = true;
+        }
     }
 
     public void ResumeGame()
