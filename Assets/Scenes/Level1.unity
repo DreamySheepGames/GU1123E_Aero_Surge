@@ -1653,6 +1653,7 @@ MonoBehaviour:
   playerLevelUp: {fileID: 8300000, guid: eebe957563ff30c41b922663e48164a0, type: 3}
   playerShoot: {fileID: 8300000, guid: cdbc304eda981b04abe2505db8590a4b, type: 3}
   enemyExplode: {fileID: 8300000, guid: 377310867dafd644297eaa91795a5bb3, type: 3}
+  enemyShoot: {fileID: 8300000, guid: 576ac7eff53957747976e6f9dd475481, type: 3}
 --- !u!1 &783650504
 GameObject:
   m_ObjectHideFlags: 0
