@@ -16,6 +16,7 @@ public class TargetRadialBurstBullet : MonoBehaviour
     Vector2 startPoint;                     // starting position of the bullet
     const float radius = 1f;                // help us find move direction
     bool canFire = true;
+    AudioSource audioSource;
 
     // bullet pool
     [SerializeField] GameObject bulletPool;         // bullet pool prefab
@@ -27,6 +28,8 @@ public class TargetRadialBurstBullet : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         // finds the player to check where they are
         playerController = FindObjectOfType<PlayerController>();
         if (playerController == null)
@@ -81,6 +84,8 @@ public class TargetRadialBurstBullet : MonoBehaviour
 
                     angle += angleStep;
                 }
+
+                AudioManager.Instance.PlayEnemyShoot(audioSource);
 
                 yield return new WaitForSeconds(fireRate);
             }

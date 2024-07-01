@@ -13,6 +13,7 @@ public class RadialBulletController : MonoBehaviour
     Vector2 startPoint;                             // starting position of the bullet
     const float radius = 1f;                        // the radius of the circle, or the length of vector, can affect bullet speed
     bool hasFired = false;
+    AudioSource audioSource;
 
     // bullet pool
     [SerializeField] GameObject bulletPool;         // bullet pool prefab
@@ -20,6 +21,11 @@ public class RadialBulletController : MonoBehaviour
 
     private void Start()
     {
+        // we can't use clip from the AudioManager because there are other enemies using this same shooting script but different sound clip.
+        // for example: AudioManager.Instance.PlaySFX(AudioManager.Instance.enemy1Shoot), but what if enemy 2 use this same script but different clip (enemy2Shoot)
+        // we will use AudioManger to play this audio source, the AudioManager will manage the volume when there are many same audio source.
+        audioSource = GetComponent<AudioSource>();
+
         bullets = Instantiate(bulletPool, transform);
     }
 
@@ -39,6 +45,8 @@ public class RadialBulletController : MonoBehaviour
     {
         float angleStep = 360 / numberOfProjectiles_;
         float angle = 0;
+
+        AudioManager.Instance.PlayEnemyShoot(audioSource);
 
         for (int i = 0; i < numberOfProjectiles_; i++)
         {

@@ -15,7 +15,7 @@ public class TargetBulletDenseController : MonoBehaviour
     // calculate the vector to shoot at player
     PlayerController playerController;
     Vector3 playerPos;
-    Vector2 bulletMoveDir;
+    AudioSource audioSource;
 
     // bullet pool
     [SerializeField] GameObject bulletPool;
@@ -24,6 +24,8 @@ public class TargetBulletDenseController : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         // finds the player to check where they are
         playerController = FindObjectOfType<PlayerController>();
         if (playerController == null)
@@ -77,6 +79,8 @@ public class TargetBulletDenseController : MonoBehaviour
                 bulRight.transform.position = transform.position;
                 bulRight.GetComponent<TargetBullet>().SetMoveDir(bulDirRight);
                 bulRight.SetActive(true);
+
+                audioSource.Play();
 
                 yield return wait;
             }

@@ -13,12 +13,14 @@ public class RadialBigBulletController : MonoBehaviour
 
     Vector2 startPoint;                     // starting position of the bullet
     const float radius = 1f;                // help us find move direction
+    AudioSource audioSource;
 
     [SerializeField] GameObject bulletPool;         // bullet pool prefab
     GameObject bullets;                             // spawn the prefab above, we will interact with it
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         bullets = Instantiate(bulletPool, transform);
         StartCoroutine(ShootBullets(numberOfProjectiles));
     }
@@ -31,12 +33,9 @@ public class RadialBigBulletController : MonoBehaviour
     private IEnumerator ShootBullets(int numberOfProjectiles_)
     {
         yield return new WaitForSeconds(timeToFire);
-        //canFire = true;
-        //if (canFire)
-        //{
+
         float angleStep = 360 / numberOfProjectiles_;
         float angle = 0;
-
 
         // number of directions
         for (int i = 0; i < numberOfProjectiles_; i++)
@@ -57,7 +56,6 @@ public class RadialBigBulletController : MonoBehaviour
             angle += angleStep;
         }
 
-        //    canFire = false;
-        //}
+        AudioManager.Instance.PlayEnemyShoot(audioSource);
     }
 }

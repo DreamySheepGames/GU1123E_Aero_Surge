@@ -16,6 +16,7 @@ public class SpinRadialBulletSpawner : MonoBehaviour
     Vector2 startPoint;                     // starting position of the bullet
     const float radius = 1f;                // help us find move direction
     public float angleTilt = 10f;           // spin the spawn point
+    AudioSource audioSource;
 
     // bullet pool
     [SerializeField] GameObject bulletPool;         // bullet pool prefab
@@ -24,6 +25,7 @@ public class SpinRadialBulletSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         bullets = Instantiate(bulletPool, transform);
         StartCoroutine(ShootBullets(numberOfProjectiles));
     }
@@ -45,7 +47,6 @@ public class SpinRadialBulletSpawner : MonoBehaviour
         {
             float angleStep = 360 / numberOfProjectiles_;
 
-
             // number of directions
             for (int i = 0; i < numberOfProjectiles_; i++)
             {
@@ -64,6 +65,8 @@ public class SpinRadialBulletSpawner : MonoBehaviour
 
                 angle += angleStep;
             }
+
+            AudioManager.Instance.PlayEnemyShoot(audioSource);
 
             // spinning
             if (clockWise)

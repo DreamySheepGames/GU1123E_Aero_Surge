@@ -12,11 +12,13 @@ public class GravityBulletCotnroller : MonoBehaviour
     float fireRate = 0.1f;
     int bulletsPerBurst = 15;        // Number of bullets per burst
     float burstPauseDuration = 1f;   // Pause for 1 second before continue to burst
+    AudioSource audioSource;
 
     bool isFire = true;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         bullets = Instantiate(bulletPool, transform);
 
         StartCoroutine(ShootBullets());
@@ -28,6 +30,8 @@ public class GravityBulletCotnroller : MonoBehaviour
         {
             for (int i = 0; i < bulletsPerBurst; i++)
             {
+                audioSource.Play();
+
                 //Instantiate(projectilePrefab, transform.position, Quaternion.identity);
                 GameObject bullet = bullets.GetComponent<BulletPooling>().GetBullet();
                 bullet.SetActive(true);

@@ -10,6 +10,7 @@ public class TargetBulleController : MonoBehaviour
     [SerializeField] float burstTime = 1f;
     [SerializeField] float shootAfterSecond = 2f;
     bool canShoot = true;
+    AudioSource audioSource;
 
     // calculate the vector to shoot at player
     PlayerController playerController;
@@ -22,6 +23,8 @@ public class TargetBulleController : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         // finds the player to check where they are
         playerController = FindObjectOfType<PlayerController>();
         if (playerController == null)
@@ -58,6 +61,8 @@ public class TargetBulleController : MonoBehaviour
                 bul.transform.position = transform.position;
                 bul.GetComponent<TargetBullet>().SetMoveDir(bulDir);
                 bul.SetActive(true);
+
+                audioSource.Play();
 
                 yield return wait;
             }

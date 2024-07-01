@@ -17,6 +17,7 @@ public class RadialSmallBullet : MonoBehaviour
 
     int bulletsPerBurst = 30;               // Number of bullets per burst
     float burstPauseDuration = 0.5f;          // Pause for 1 second before continue to burst
+    AudioSource audioSource;
 
     // bullet pool
     [SerializeField] GameObject bulletPool;         // bullet pool prefab
@@ -25,6 +26,7 @@ public class RadialSmallBullet : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         bullets = Instantiate(bulletPool, transform);
         StartCoroutine(ShootBullets(numberOfProjectiles));
     }
@@ -47,9 +49,12 @@ public class RadialSmallBullet : MonoBehaviour
             // number of directions
             for (int i = 0; i < numberOfProjectiles_; i++)
             {
+                audioSource.Play();
+
                 // number of bullets per direction per burst
                 for (int j = 0; j < bulletsPerBurst; j++)
                 {
+
                     // direction vector calculations
                     float projectileDirXPosition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
                     float projectileDirYPosition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
