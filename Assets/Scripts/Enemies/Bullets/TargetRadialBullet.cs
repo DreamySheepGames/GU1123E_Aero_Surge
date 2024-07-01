@@ -48,35 +48,41 @@ public class TargetRadialBullet : MonoBehaviour
     private IEnumerator ShootBullets(int numberOfProjectiles_)
     {
         yield return new WaitForSeconds(timeToFire);
-        
-        float angleStep = 360 / numberOfProjectiles_;
-
-        // use vector2.up and vector that point to player to create angle
-        Vector2 bulDir = (playerPos - transform.position).normalized;
-        float angle = Vector2.Angle(Vector2.up, bulDir);
-
-        // because Vector2.Angle doesn't return the angle that is bigger than 180
-        if (transform.position.x > playerPos.x)
-            angle = 360 - angle;
-
-        // number of directions
-        for (int i = 0; i < numberOfProjectiles_; i++)
+        canFire = true;
+        if (canFire)
         {
-            // direction vector calculations
-            float projectileDirXPosition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
-            float projectileDirYPosition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+            float angleStep = 360 / numberOfProjectiles_;
 
-            Vector2 projectileVector = new Vector2(projectileDirXPosition, projectileDirYPosition);
-            Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * projectileSpeed;
+            // use vector2.up and vector that point to player to create angle
+            Vector2 bulDir = (playerPos - transform.position).normalized;
+            float angle = Vector2.Angle(Vector2.up, bulDir);
 
-            //GameObject bullet = Instantiate(projectilePrefab, startPoint, Quaternion.identity);
-            GameObject bullet = bullets.GetComponent<BulletPooling>().GetBullet();
-            bullet.SetActive(true);
-            bullet.GetComponent<Rigidbody2D>().velocity = projectileMoveDirection;
+            // because Vector2.Angle doesn't return the angle that is bigger than 180
+            if (transform.position.x > playerPos.x)
+                angle = 360 - angle;
 
-            angle += angleStep;
+            // number of directions
+            for (int i = 0; i < numberOfProjectiles_; i++)
+            {
+                
+
+                // direction vector calculations
+                float projectileDirXPosition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
+                float projectileDirYPosition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+
+                Vector2 projectileVector = new Vector2(projectileDirXPosition, projectileDirYPosition);
+                Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * projectileSpeed;
+
+                //GameObject bullet = Instantiate(projectilePrefab, startPoint, Quaternion.identity);
+                GameObject bullet = bullets.GetComponent<BulletPooling>().GetBullet();
+                bullet.SetActive(true);
+                bullet.GetComponent<Rigidbody2D>().velocity = projectileMoveDirection;
+
+                angle += angleStep;
+            }
+
+            AudioManager.Instance.PlayEnemyShoot(audioSource);
+            canFire = false;
         }
-
-        AudioManager.Instance.PlayEnemyShoot(audioSource);
     }
 }
