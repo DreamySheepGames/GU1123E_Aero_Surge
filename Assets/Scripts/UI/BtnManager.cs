@@ -7,6 +7,7 @@ public class BtnManager : MonoBehaviour
 {
     [SerializeField] string mainMenu = "MainMenu";
     [SerializeField] string chooseLevel = "ChooseLevel";
+    [SerializeField] string howToPlay = "HowToPlay";
     [SerializeField] string lv1 = "Level1";
     [SerializeField] string lv2 = "Level2";
 
@@ -68,6 +69,11 @@ public class BtnManager : MonoBehaviour
     public void ChooseLevel()
     {
         SceneManager.LoadScene(chooseLevel);
+    }
+
+    public void HowToPlay()
+    {
+        SceneManager.LoadScene(howToPlay);
     }
 
     public void QuitGame()
