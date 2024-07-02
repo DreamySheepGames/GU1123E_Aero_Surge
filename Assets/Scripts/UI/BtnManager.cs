@@ -69,4 +69,9 @@ public class BtnManager : MonoBehaviour
     {
         SceneManager.LoadScene(chooseLevel);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
