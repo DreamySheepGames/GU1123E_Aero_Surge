@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class BtnManager : MonoBehaviour
 {
     [SerializeField] string mainMenu = "MainMenu";
+    [SerializeField] string chooseLevel = "ChooseLevel";
     [SerializeField] string lv1 = "Level1";
     [SerializeField] string lv2 = "Level2";
 
@@ -20,6 +21,11 @@ public class BtnManager : MonoBehaviour
     public void AdventureBtn()
     {
         GameManager.isAdventureMode = true;
+        SceneManager.LoadScene(lv1);
+    }
+
+    public void Level1()
+    {
         SceneManager.LoadScene(lv1);
     }
 
@@ -57,5 +63,10 @@ public class BtnManager : MonoBehaviour
         Time.timeScale = 1f;
         PauseMenu.isPause = false;
         SceneManager.LoadScene(mainMenu);
+    }
+
+    public void ChooseLevel()
+    {
+        SceneManager.LoadScene(chooseLevel);
     }
 }
