@@ -66,8 +66,9 @@ public class BtnManager : MonoBehaviour
         SceneManager.LoadScene(mainMenu);
     }
 
-    public void ChooseLevel()
+    public void Practice()
     {
+        GameManager.isAdventureMode = false;
         SceneManager.LoadScene(chooseLevel);
     }
 

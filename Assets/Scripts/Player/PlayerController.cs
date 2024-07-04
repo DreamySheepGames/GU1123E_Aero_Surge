@@ -21,10 +21,10 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     [SerializeField] GameObject hitbox;                         // the red dot appears on player sprite
-    [SerializeField] float nextFire = 0f;                       // bullet cooldown
     [SerializeField] float fireRate = 0.1f;                     // bullet cooldown
 
-    float midBulletDelta = 0.2f;                               // bullet shooting style at player level 2 and 3
+    float curFireRate;
+    float midBulletDelta = 0.2f;                                // bullet shooting style at player level 2 and 3
     float diagBulletDelta = 0.6f;                               // bullet shooting style at player level 3
     float diagBulletAngle = 30f;                                // bullet shooting style at player level 3
 
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         speedNormal = speed;
+        curFireRate = fireRate;
     }
 
     private void Update()
@@ -105,9 +106,9 @@ public class PlayerController : MonoBehaviour
     void PlayerShooting()
     {
         // player presses Z to fire
-        if (Time.time > nextFire && Input.GetKey(KeyCode.Z) && !PauseMenu.isPause)
+        if (curFireRate <= 0 && Input.GetKey(KeyCode.Z) && !PauseMenu.isPause)
         {
-            nextFire = Time.time + fireRate;
+            curFireRate = fireRate;
 
             // deicde which shooting style to use based on player level
             switch (GameManager.playerLevel)
@@ -129,6 +130,13 @@ public class PlayerController : MonoBehaviour
                     PlayerLevel1Shooting();
                     break;
             }
+        }
+        else
+        {
+            curFireRate -= Time.deltaTime;
+
+            if (curFireRate < 0)
+                curFireRate = 0;
         }
     }
 

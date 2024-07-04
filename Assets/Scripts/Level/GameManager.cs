@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public static bool isAdventureMode = false;
-    public AudioManager audioManager;
 
     [Header("PLAYER UI")]
     public Text livesTxt;

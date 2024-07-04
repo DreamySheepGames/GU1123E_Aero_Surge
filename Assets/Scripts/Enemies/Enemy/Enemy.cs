@@ -58,7 +58,9 @@ public class Enemy : MonoBehaviour
     public void SelfDestroy()
     {
         // score
-        Scoring();
+        if (!GameManager.isAdventureMode)
+            Scoring();
+
         PlayerLevelUpCheck();
         Destroy(gameObject);
     }

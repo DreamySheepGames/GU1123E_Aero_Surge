@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class PlayerAudioController : MonoBehaviour
 {
-    public AudioManager audioManager;
-
     public void PlayerAudioExplode()
     {
-        audioManager.PlaySFX(audioManager.playerExplode);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playerExplode);
     }
 
     public void PlayerAudioRevive()
     {
-        audioManager.PlaySFX(audioManager.playerRevive);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.playerRevive);
     }
 
 }
