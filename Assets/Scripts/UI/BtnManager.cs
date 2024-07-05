@@ -15,7 +15,6 @@ public class BtnManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         PauseMenu.isPause = false;
-        GameManager.isAdventureMode = false;
         SceneManager.LoadScene(lv1);
     }
 
@@ -61,14 +60,25 @@ public class BtnManager : MonoBehaviour
 
     public void Menu()
     {
+        // reset pause
         Time.timeScale = 1f;
         PauseMenu.isPause = false;
+
+        // reset modes
+        GameManager.isAdventureMode = false;
+        GameManager.isPracticeMode = false;
+
+        // reset player stats
+        GameManager.livesCounter = 1;
+        GameManager.playerLevel = 1;
+        GameManager.killCount = 0;
+
         SceneManager.LoadScene(mainMenu);
     }
 
     public void Practice()
     {
-        GameManager.isAdventureMode = false;
+        GameManager.isPracticeMode = true;
         SceneManager.LoadScene(chooseLevel);
     }
 

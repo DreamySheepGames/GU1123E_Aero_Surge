@@ -2,20 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
     public static bool isAdventureMode = false;
+    public static bool isPracticeMode = false;
 
     [Header("PLAYER UI")]
     public Text livesTxt;
     public static int livesCounter = 1;
     public static int playerLevel = 1;
-    public static int killBeforeLevelUp = 10;
     public static int killCount = 0;
 
+    public static int killBeforeLevelUp = 10;
     public static int playerLevelCap = 3;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -30,8 +34,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (livesCounter == 0)
+        if (livesCounter <= 0 || SceneManager.GetActiveScene().name == "MainMenu")
+        {
             livesCounter = 1;
+        }
     }
 
     private void Update()

@@ -6,7 +6,7 @@ public class Boss : Enemy
 {
     [Header("Boss Settings")]
     [SerializeField] float timeBeforeStayStill = 1f;        // Enemy will move down for 0.5s
-    public static bool IsAlive = true;                      // Work with junk spawner 
+    public static bool IsAlive;                             // Work with junk spawner 
 
     [Header("UI")]
     public BossHealthBar bossHealthBar;
@@ -14,6 +14,11 @@ public class Boss : Enemy
 
     [Header("Player")]                                      // turn player invincible on when boss is defeated
     public GameObject player;
+
+    private void OnEnable()
+    {
+        IsAlive = true;
+    }
 
     protected override void Start()
     {

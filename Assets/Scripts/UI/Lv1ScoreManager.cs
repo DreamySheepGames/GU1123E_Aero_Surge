@@ -26,8 +26,9 @@ public class Lv1ScoreManager : MonoBehaviour
 
     public void Update()
     {
-        // Set high score save with PlayerPrefs
-        if (scoreCount >= highScoreCount)
+        // Set high score save with PlayerPrefs, only set high score if player is not in Practice mode
+        // Player can't score in Adventure mode, the code is put in Enemy.cs
+        if (!GameManager.isPracticeMode && scoreCount >= highScoreCount)
         {
             PlayerPrefs.SetInt(saveKey, highScoreCount);
             highScoreCount = scoreCount;
