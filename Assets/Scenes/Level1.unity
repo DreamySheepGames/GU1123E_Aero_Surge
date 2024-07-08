@@ -2540,7 +2540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSpawn: 1
   EnemyPrefabs: {fileID: 1070858514183341877, guid: cf7c5f9416acf954496ef818cdd3f5cc, type: 3}
-  spawnTime: 125
+  spawnTime: 1
   spawnRate: 1
   amountEachRow: 4
   distanceInRow: 5
@@ -2953,7 +2953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db09f7f758caa194f91c71435e696434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 757279200}
   livesTxt: {fileID: 284025493}
 --- !u!114 &1787099960
 MonoBehaviour:
@@ -2968,7 +2967,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 679038903}
-  audioSource: {fileID: 757279198}
 --- !u!1 &1894563729
 GameObject:
   m_ObjectHideFlags: 0

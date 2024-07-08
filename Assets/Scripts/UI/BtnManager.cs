@@ -11,6 +11,8 @@ public class BtnManager : MonoBehaviour
     [SerializeField] string lv1 = "Level1";
     [SerializeField] string lv2 = "Level2";
 
+    bool test;
+
     public void PlayBtn()
     {
         Time.timeScale = 1f;
